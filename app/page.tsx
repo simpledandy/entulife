@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, useSpring, useTransform, AnimatePresence } from 'framer-motion';
+import Head from 'next/head';
 
 type Stage = 'entry' | 'awe' | 'cosmos';
 type CosmicObject = {
@@ -316,6 +317,10 @@ export default function EntuLife() {
       onMouseLeave={handleMouseUp}
       onWheel={handleWheel}
     >
+      <Head>
+        <title>Entulife - Things to do In Your Life</title>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
       <AnimatePresence mode="wait">
         {stage === 'entry' && (
           <motion.div
