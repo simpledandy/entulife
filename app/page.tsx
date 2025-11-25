@@ -9,7 +9,7 @@ type CosmicObject = {
   y: number;
   vx: number;
   vy: number;
-  type: 'possibility' | 'fact' | 'question';
+  type: 'inspiration' | 'fact' | 'whisper';
   content: string;
   emoji?: string;
   size: number;
@@ -26,32 +26,55 @@ type Star = {
   layer: number;
 };
 
-const possibilities = [
-  { text: "Learn to play an instrument", emoji: "🎸" },
-  { text: "Write a book", emoji: "📖" },
-  { text: "Learn a new language", emoji: "🗣️" },
-  { text: "Start painting", emoji: "🎨" },
-  { text: "Travel solo", emoji: "🌍" },
-  { text: "Learn to code", emoji: "💻" },
-  { text: "Start a garden", emoji: "🌱" },
-  { text: "Learn photography", emoji: "📸" },
-  { text: "Take dance lessons", emoji: "💃" },
-  { text: "Learn to cook new cuisine", emoji: "🍜" },
-  { text: "Write poetry", emoji: "✍️" },
-  { text: "Learn meditation", emoji: "🧘" },
-  { text: "Start a podcast", emoji: "🎙️" },
-  { text: "Learn astronomy", emoji: "🔭" },
-  { text: "Try rock climbing", emoji: "🧗" },
-  { text: "Learn calligraphy", emoji: "🖋️" },
-  { text: "Start journaling", emoji: "📔" },
-  { text: "Learn origami", emoji: "🦢" },
-  { text: "Take up woodworking", emoji: "🪵" },
-  { text: "Learn to surf", emoji: "🏄" },
-  { text: "Compose music", emoji: "🎵" },
-  { text: "Learn pottery", emoji: "🏺" },
-  { text: "Start beekeeping", emoji: "🐝" },
-  { text: "Learn to sail", emoji: "⛵" },
-  { text: "Try glassblowing", emoji: "🫧" },
+const inspirations = [
+  { text: "Julia Child started cooking at 36", age: 36, emoji: "🍳" },
+  { text: "Vera Wang designed her first dress at 40", age: 40, emoji: "👗" },
+  { text: "Stan Lee created Spider-Man at 39", age: 39, emoji: "🕷️" },
+  { text: "Alan Rickman got his first movie role at 46", age: 46, emoji: "🎭" },
+  { text: "Morgan Freeman got his big break at 52", age: 52, emoji: "🎬" },
+  { text: "Samuel L. Jackson's career took off at 43", age: 43, emoji: "⭐" },
+  { text: "Harland Sanders founded KFC at 62", age: 62, emoji: "🍗" },
+  { text: "Laura Ingalls Wilder published her first book at 65", age: 65, emoji: "📖" },
+  { text: "Kathryn Joosten won her first Emmy at 66", age: 66, emoji: "🏆" },
+  { text: "Grandma Moses painted her first piece at 78", age: 78, emoji: "🎨" },
+  { text: "Ray Kroc founded McDonald's at 52", age: 52, emoji: "🍔" },
+  { text: "Taikichiro Mori became a billionaire at 55", age: 55, emoji: "💼" },
+  { text: "Lynda Weinman founded Lynda.com at 40", age: 40, emoji: "💻" },
+  { text: "Momofuku Ando invented instant ramen at 48", age: 48, emoji: "🍜" },
+  { text: "Anna Mary Robertson started painting at 76", age: 76, emoji: "🖼️" },
+  { text: "Diana Nyad swam from Cuba to Florida at 64", age: 64, emoji: "🏊" },
+  { text: "Fauja Singh ran his first marathon at 89", age: 89, emoji: "🏃" },
+  { text: "Yuichiro Miura climbed Everest at 80", age: 80, emoji: "⛰️" },
+  { text: "Nola Ochs got her college degree at 95", age: 95, emoji: "🎓" },
+  { text: "Frank McCourt published Angela's Ashes at 66", age: 66, emoji: "📚" },
+  { text: "Andrea Bocelli became famous at 36", age: 36, emoji: "🎤" },
+  { text: "Vivienne Westwood opened her first shop at 30", age: 30, emoji: "👠" },
+  { text: "Toni Morrison published her first novel at 39", age: 39, emoji: "✍️" },
+  { text: "Peter Mark Roget published his Thesaurus at 73", age: 73, emoji: "📖" },
+  { text: "Harry Bernstein published his memoir at 96", age: 96, emoji: "📝" },
+  { text: "Wally Amos founded Famous Amos at 39", age: 39, emoji: "🍪" },
+  { text: "Henry Ford created the Model T at 45", age: 45, emoji: "🚗" },
+  { text: "Arianna Huffington founded HuffPost at 54", age: 54, emoji: "📰" },
+  { text: "Charles Darwin published Origin of Species at 50", age: 50, emoji: "🧬" },
+  { text: "J.R.R. Tolkien published The Hobbit at 45", age: 45, emoji: "📚" },
+  { text: "Rodney Dangerfield got famous at 46", age: 46, emoji: "😄" },
+  { text: "Mary Wesley published her first novel at 71", age: 71, emoji: "📖" },
+  { text: "Laura Ingalls Wilder started writing at 64", age: 64, emoji: "🖊️" },
+  { text: "Kathryn Bigelow won Best Director at 58", age: 58, emoji: "🎬" },
+  { text: "Reid Hoffman founded LinkedIn at 36", age: 36, emoji: "💼" },
+  { text: "Robin Chase founded Zipcar at 42", age: 42, emoji: "🚙" },
+  { text: "Tim & Nina Zagat published their guide at 51", age: 51, emoji: "🍽️" },
+  { text: "Gary Heavin founded Curves at 39", age: 39, emoji: "💪" },
+  { text: "Bernie Marcus founded Home Depot at 50", age: 50, emoji: "🔨" },
+  { text: "Wally Blume founded Denali Flavors at 57", age: 57, emoji: "🍦" },
+  { text: "Someone learned to surf at 67", age: 67, emoji: "🏄" },
+  { text: "Someone started a band at 72", age: 72, emoji: "🎸" },
+  { text: "Someone wrote their first poem at 83", age: 83, emoji: "✨" },
+  { text: "Someone opened a café at 55", age: 55, emoji: "☕" },
+  { text: "Someone learned to sail at 70", age: 70, emoji: "⛵" },
+  { text: "Someone became a yoga teacher at 68", age: 68, emoji: "🧘" },
+  { text: "Someone started photography at 74", age: 74, emoji: "📸" },
+  { text: "Someone learned piano at 81", age: 81, emoji: "🎹" },
 ];
 
 const facts = [
@@ -72,17 +95,17 @@ const facts = [
   "You're made of stardust",
 ];
 
-const questions = [
+const whispers = [
   "What made you smile today?",
-  "What's one thing you've never tried?",
+  "What sound makes you feel at home?",
   "What would you do with infinite time?",
-  "What sound brings you peace?",
-  "What story do you want to tell?",
-  "What did you love doing as a child?",
-  "What would you create if no one judged?",
-  "What makes you lose track of time?",
-  "What would you teach someone?",
-  "What adventure calls to you?",
+  "What did you love before anyone told you what to love?",
+  "What makes time disappear?",
+  "If you could learn anything, just for the joy of it?",
+  "What would you create in secret?",
+  "What calls to you in quiet moments?",
+  "Where does your curiosity wander?",
+  "What feels like play to you?",
 ];
 
 export default function EntuLife() {
@@ -97,7 +120,7 @@ export default function EntuLife() {
   const [isDragging, setIsDragging] = useState(false);
   const [dragStart, setDragStart] = useState({ x: 0, y: 0 });
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
-  const animationFrameRef = useRef<number>();
+  const animationFrameRef = useRef<number>(0);
 
   const spring = useSpring(age ?? 0, { stiffness: 70, damping: 20 });
   const leftPercent = useTransform(spring, (v) => `${v}%`);
@@ -192,17 +215,17 @@ export default function EntuLife() {
     const objects: CosmicObject[] = [];
     const spread = 2500;
     
-    for (let i = 0; i < 35; i++) {
-      const poss = possibilities[Math.floor(Math.random() * possibilities.length)];
+    for (let i = 0; i < 25; i++) {
+      const insp = inspirations[Math.floor(Math.random() * inspirations.length)];
       objects.push({
-        id: `poss-${i}`,
+        id: `insp-${i}`,
         x: (Math.random() - 0.5) * spread,
         y: (Math.random() - 0.5) * spread,
         vx: (Math.random() - 0.5) * 0.15,
         vy: (Math.random() - 0.5) * 0.15,
-        type: 'possibility',
-        content: poss.text,
-        emoji: poss.emoji,
+        type: 'inspiration',
+        content: insp.text,
+        emoji: insp.emoji,
         size: 70 + Math.random() * 50,
         hue: 190 + Math.random() * 30,
         pulseOffset: Math.random() * Math.PI * 2,
@@ -224,15 +247,15 @@ export default function EntuLife() {
       });
     }
     
-    for (let i = 0; i < 15; i++) {
+    for (let i = 0; i < 12; i++) {
       objects.push({
-        id: `question-${i}`,
+        id: `whisper-${i}`,
         x: (Math.random() - 0.5) * spread,
         y: (Math.random() - 0.5) * spread,
         vx: (Math.random() - 0.5) * 0.12,
         vy: (Math.random() - 0.5) * 0.12,
-        type: 'question',
-        content: questions[Math.floor(Math.random() * questions.length)],
+        type: 'whisper',
+        content: whispers[Math.floor(Math.random() * whispers.length)],
         size: 55 + Math.random() * 35,
         hue: 170 + Math.random() * 20,
         pulseOffset: Math.random() * Math.PI * 2,
@@ -462,31 +485,33 @@ export default function EntuLife() {
             </div>
 
             {age !== null && (
-              <motion.button
+              <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                onClick={proceedToAwe}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
                 style={{
                   marginTop: 40,
-                  padding: "12px 32px",
-                  fontSize: "1rem",
-                  background: "rgba(107,230,225,0.15)",
-                  border: "1px solid rgba(107,230,225,0.4)",
-                  borderRadius: 999,
-                  color: "#7be6e6",
-                  cursor: "pointer",
-                  transition: "all 0.3s ease",
-                  backdropFilter: "blur(10px)",
+                  display: "inline-block",
                 }}
-                whileHover={{ 
-                  scale: 1.05, 
-                  background: "rgba(107,230,225,0.25)",
-                  boxShadow: "0 0 20px rgba(107,230,225,0.3)",
-                }}
-                whileTap={{ scale: 0.95 }}
               >
-                Continue →
-              </motion.button>
+                <button
+                  onClick={proceedToAwe}
+                  style={{
+                    padding: "12px 32px",
+                    fontSize: "1rem",
+                    background: "rgba(107,230,225,0.15)",
+                    border: "1px solid rgba(107,230,225,0.4)",
+                    borderRadius: 999,
+                    color: "#7be6e6",
+                    cursor: "pointer",
+                    transition: "all 0.3s ease",
+                    backdropFilter: "blur(10px)",
+                  }}
+                >
+                  Continue →
+                </button>
+              </motion.div>
             )}
           </motion.div>
         )}
@@ -654,10 +679,11 @@ export default function EntuLife() {
                       </motion.div>
                     )}
                     <div style={{ 
-                      fontSize: obj.type === 'possibility' ? "0.85rem" : "0.75rem",
+                      fontSize: obj.type === 'inspiration' ? "0.8rem" : obj.type === 'whisper' ? "0.78rem" : "0.75rem",
                       lineHeight: 1.4,
-                      opacity: 0.9 + proximityFactor * 0.1,
-                      fontWeight: 400,
+                      opacity: 0.85 + proximityFactor * 0.15,
+                      fontWeight: obj.type === 'whisper' ? 300 : 400,
+                      fontStyle: obj.type === 'whisper' ? 'italic' : 'normal',
                     }}>
                       {obj.content}
                     </div>
